@@ -1,0 +1,158 @@
+nav {
+  background-color: var(--primary-yellow);
+}
+
+.logo-container {
+  display: flex;
+}
+
+nav ul > li > a {
+  text-transform: uppercase;
+  color: var(--primary-purple) !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+  margin-right: 20px;
+  border-bottom: 3px solid transparent !important;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  border-bottom: 3px solid var(--primary-purple) !important;
+  background-color: var(--secondary-white);
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  border-bottom: 3px solid var(--primary-purple) !important;
+  background-color: var(--secondary-white);
+  transition: all 0.05s ease-in-out;
+}
+
+nav .nav-link {
+  font-weight: bold;
+}
+
+#nav-list a {
+  text-align: center;
+}
+
+.btn-search {
+  background: var(--primary-green);
+  color: var(--primary-white);
+}
+
+.navbar-brand h1 { /* Restaurant name */
+  font-family: 'Lora', serif;
+  color: var(--primary-green);
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 10px;
+  margin-bottom: 0;
+  line-height: .75;
+}
+
+.navbar-brand a {
+  text-decoration: none;
+}
+
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+
+.navbar-brand p { /* Kosher cert */
+  color: #000;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.navbar-brand p span { /* Star-K */
+  vertical-align: middle;
+}
+
+.navbar-brand img {
+  margin-right: 3px;
+}
+
+/* Overwrite bootstrap */
+.form-control:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 0.25rem var(--transparent-purple);
+}
+
+/********** Large devices only **********/
+@media (max-width: 1400px) {
+  .navbar-brand h1 { /* Restaurant name */
+    font-size: 18px;
+  }
+  .navbar-brand p {
+    font-size: 10px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+  #logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/********** Medium devices only **********/
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1022px;
+  }
+  #logo {
+    display: none;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+  #star {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/********** Small devices only **********/
+@media (max-width: 992px) {
+  .navbar-brand #logo {
+    display: none;
+  }
+  .navbar-brand h1 {
+    padding-top: 10px;
+    font-size: 5vw;
+  }
+  .navbar-brand p {
+    font-size: .6em;
+    margin-top: 12px;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+  #star {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  .navbar-brand #logo {
+    display: none;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+  #star {
+    width: 17px;
+    height: 17px;
+  }
+  .navbar-brand span {
+    font-size: 12px;
+  }
+}

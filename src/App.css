@@ -7,13 +7,14 @@
   --secondary-purple: #951C49;
   --secondary-black: #000000;
   --secondary-white: #e7e7e7;
+  --transparent-purple: rgba(97, 18, 47, 0.185);
 }
 
 * {
-  box-sizing: border-box;
-  font-size: 62.5%;
+  box-sizing: border-box !important;
 }
 
 body {
   font-family: 'Oxygen', sans-serif !important;
+  background-color: var(--primary-purple) !important;
 }
