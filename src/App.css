@@ -17,4 +17,5 @@
 body {
   font-family: 'Oxygen', sans-serif !important;
   background-color: var(--primary-purple) !important;
+  overflow-x: hidden;
 }

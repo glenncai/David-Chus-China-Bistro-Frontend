@@ -1,0 +1,62 @@
+.panel-footer {
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+  border-top: 0;
+  font-size: 18px;
+}
+
+.panel-footer div.row {
+  margin-bottom: 35px;
+}
+
+#hours, #address {
+  line-height: 2;
+}
+
+#hours > span, #address > span {
+  font-size: 23px;
+}
+
+#address p {
+  color: var(--primary-green);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#testimonials {
+  font-style: italic;
+}
+
+#testimonials p:nth-child(2) {
+  margin-top: 25px;
+}
+
+.footer-admin a:visited,
+.footer-admin a:link {
+  color: var(--primary-white);
+  text-decoration: none;
+}
+
+.footer-admin a:hover {
+  text-decoration: underline;
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .panel-footer section {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .panel-footer section:nth-child(3) {
+    margin-bottom: 0; /* margin already exists on the whole row */
+  }
+  .panel-footer section hr {
+    width: 50%;
+    border: 1px solid var(--primary-white);
+    margin: 20px auto 0 auto;
+    opacity: .7;
+  }
+}
+

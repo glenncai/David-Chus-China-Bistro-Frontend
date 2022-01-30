@@ -1,7 +1,11 @@
-import React from 'react';
+import './Main.css';
 
 const Main = () => {
-  const renderMain = () => <h1>Hello, this is main!</h1>;
+  const renderMain = () => (
+    <main className="main-container">
+      <h1>Hello, this is main content.</h1>
+    </main>
+  );
   return <>{renderMain()}</>;
 };
 
