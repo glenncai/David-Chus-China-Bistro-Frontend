@@ -1,9 +1,5 @@
 import './Navbar.css';
-import {
-  faBars,
-  faSearch,
-  faCartPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../../assets/images/surrounding/restaurant-logo_medium.png';
 import Star from '../../../assets/images/surrounding/star-k-logo.png';
