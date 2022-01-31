@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../../assets/images/surrounding/restaurant-logo_medium.png';
 import Star from '../../../assets/images/surrounding/star-k-logo.png';
 
-const Navbar = () => {
+export const Navbar = () => {
   const renderNavbar = () => (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -84,5 +84,3 @@ const Navbar = () => {
 
   return <>{renderNavbar()}</>;
 };
-
-export default Navbar;

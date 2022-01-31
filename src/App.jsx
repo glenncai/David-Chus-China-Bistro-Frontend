@@ -1,14 +1,12 @@
 import './Reset.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from './components/Layout/Layout';
+import { RoutesPath } from './components/RoutesPath/RoutesPath';
 
 function App() {
-  return (
-    <div className="App">
-      <Layout />
-    </div>
-  );
+  const renderApp = () => <RoutesPath />;
+
+  return <div className="App">{renderApp()}</div>;
 }
 
 export default App;

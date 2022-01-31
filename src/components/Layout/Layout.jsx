@@ -1,8 +1,8 @@
-import Navbar from './Navbar/Navbar';
-import Main from './Main/Main';
-import Footer from './Footer/Footer';
+import { Navbar } from './Navbar/Navbar';
+import { Main } from './Main/Main';
+import { Footer } from './Footer/Footer';
 
-const Layout = () => {
+export const Layout = () => {
   const renderLayout = () => (
     <div>
       <Navbar />
@@ -13,5 +13,3 @@ const Layout = () => {
 
   return <>{renderLayout()}</>;
 };
-
-export default Layout;
