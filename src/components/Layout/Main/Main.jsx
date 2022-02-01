@@ -1,12 +1,23 @@
 import './Main.css';
 
-const Main = () => {
-  const renderMain = () => (
-    <main className="main-container">
-      <h1>Hello, this is main content.</h1>
-    </main>
-  );
+export const Main = (props) => {
+  const { title, background, children } = props;
+
+  const renderMain = () => {
+    let cssClass = 'main-container';
+    if (background) {
+      cssClass = 'main-background';
+    }
+
+    return (
+      <main className={cssClass}>
+        <div className="container-fluid">
+          <h1 className="main-title">{title}</h1>
+          {children}
+        </div>
+      </main>
+    );
+  };
+
   return <>{renderMain()}</>;
 };
-
-export default Main;

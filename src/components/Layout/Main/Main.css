@@ -1,4 +1,32 @@
 .main-container {
-  background: red;
   min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: var(--primary-white);
+}
+
+.main-background {
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: var(--primary-white);
+  background:linear-gradient(rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0.8) 100%), url('../../../assets/images/surrounding/background.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.main-title {
+  font-weight: 700;
+  padding-top: 30px;
+  font-family: 'Lora', serif;
+  color: var(--primary-purple);
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px var(--secondary-white);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  line-height: .75;
 }

@@ -1,17 +1,17 @@
-import Navbar from './Navbar/Navbar';
-import Main from './Main/Main';
-import Footer from './Footer/Footer';
+import { Navbar } from './Navbar/Navbar';
+import { Main } from './Main/Main';
+import { Footer } from './Footer/Footer';
 
-const Layout = () => {
+export const Layout = (props) => {
   const renderLayout = () => (
     <div>
       <Navbar />
-      <Main />
+      <Main title={props.title} background={props.background}>
+        {props.children}
+      </Main>
       <Footer />
     </div>
   );
 
   return <>{renderLayout()}</>;
 };
-
-export default Layout;
