@@ -17,12 +17,10 @@ nav ul > li > a {
 }
 
 .navbar-nav .nav-item .nav-link.active {
-  border-bottom: 3px solid var(--primary-purple) !important;
   background-color: var(--secondary-white);
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-  border-bottom: 3px solid var(--primary-purple) !important;
   background-color: var(--secondary-white);
   transition: all 0.05s ease-in-out;
 }
@@ -73,6 +71,11 @@ nav .nav-link {
 
 .navbar-brand img {
   margin-right: 3px;
+}
+
+.toggleBar {
+  background: var(--primary-purple);
+  color: var(--secondary-white) !important;
 }
 
 /* Overwrite bootstrap */

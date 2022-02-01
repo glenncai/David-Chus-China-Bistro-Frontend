@@ -1,0 +1,95 @@
+.menu-container {
+  padding-bottom: 30px;
+}
+
+.menu-typed {
+  font-size: 32px;
+  color: var(--secondary-white);
+  font-family:'Courier New', Courier, monospace;
+}
+
+.jumbotron {
+  box-shadow: 0 0 50px var(--secondary-purple);
+  border: 2px solid var(--secondary-purple);
+  margin: 30px 0;
+}
+
+.jumbotron img {
+  width: 100%;
+}
+
+#menu-tile, #specials-tile, #map-tile {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border-top: 2px solid var(--secondary-purple);
+  border-left: 2px solid var(--secondary-purple);
+  border-right: 2px solid var(--secondary-purple);
+  overflow: hidden;
+}
+
+#menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+  box-shadow: 0 1px 5px 1px var(--secondary-white);
+}
+
+#menu-tile {
+  background: url('../../../assets/images/surrounding/menu-tile.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#specials-tile {
+  background: url('../../../assets/images/surrounding/specials-tile.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#menu-tile span, #specials-tile span, #map-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: var(--secondary-black);
+  color: var(--primary-white);
+  opacity: .8;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  .menu-typed {
+    font-size: 34px;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .menu-typed {
+    font-size: 30px;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .menu-typed {
+    font-size: 28px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .menu-typed {
+    font-size: 26px;
+  }
+}
+
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  .menu-typed {
+    font-size: 17px;
+  }
+}
