@@ -61,31 +61,30 @@
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   .menu-typed {
-    font-size: 34px;
+    font-size: 24px;
   }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   .menu-typed {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .menu-typed {
-    font-size: 28px;
+    font-size: 18px;
   }
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
   .menu-typed {
-    font-size: 26px;
+    font-size: 16px;
   }
 }
-
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {

@@ -3,6 +3,7 @@ import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../../assets/images/surrounding/restaurant-logo_medium.png';
 import Star from '../../../assets/images/surrounding/star-k-logo.png';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const renderNavbar = () => (
@@ -10,13 +11,13 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
           <div className="logo-container">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               <img src={Logo} id="logo" alt="David Chu's China Bistro" />
-            </a>
+            </Link>
             <div className="navbar-brand">
-              <a href="/">
+              <Link to="/">
                 <h1>David Chu's China Bistro</h1>
-              </a>
+              </Link>
               <p>
                 <img src={Star} id="star" alt="Kosher certification" />
                 <span>Kosher Certified</span>
@@ -37,24 +38,31 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav-list" className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link
+                  className={
+                    window.location.pathname === '/catalog'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                  to="/catalog"
+                >
                   Browse
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="/">
                   Sign In
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="/">
                   Register
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="/">
                   Cart
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="d-flex">

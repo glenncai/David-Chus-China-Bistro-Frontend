@@ -4,15 +4,17 @@ export const Main = (props) => {
   const { title, background, children } = props;
 
   const renderMain = () => {
-    let cssClass = 'main-container';
+    let backgroundClass = 'main-container';
+    let titleClass = 'main-title';
     if (background) {
-      cssClass = 'main-background';
+      backgroundClass = 'main-background';
+      titleClass = 'custom-title';
     }
 
     return (
-      <main className={cssClass}>
+      <main className={backgroundClass}>
         <div className="container-fluid">
-          <h1 className="main-title">{title}</h1>
+          <h2 className={titleClass}>{title}</h2>
           {children}
         </div>
       </main>

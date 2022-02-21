@@ -1,0 +1,18 @@
+.checkbox-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-group ul {
+  text-align: left;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-yellow);
+  border-color: var(--primary-yellow);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgb(246 179 25 / 25%);
+}

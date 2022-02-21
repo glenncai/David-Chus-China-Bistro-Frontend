@@ -1,0 +1,22 @@
+.catalog-subtitle {
+  font-size: 15px;
+}
+
+.catalog-main {
+  display: flex;
+}
+
+.catalog-category {
+  margin-right: 50px;
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .catalog-main {
+    display: block;
+  }
+
+  .catalog-category {
+    margin-right: 0;
+  }
+}

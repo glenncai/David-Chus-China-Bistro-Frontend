@@ -1,0 +1,127 @@
+.menu-item-tile {
+  margin-bottom: 25px;
+}
+
+.menu-item-tile hr {
+  width: 80%;
+}
+
+.menu-item-tile .menu-item-price {
+  font-size: 1px;
+  text-align: right;
+  margin-top: -15px;
+  margin-right: -15px;
+}
+
+.menu-item-tile .menu-item-price span {
+  font-size: 18px;
+}
+
+h3.menu-item-title {
+  font-size: 24px;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+.menu-item-photo {
+  position: relative;
+  border: 2px solid var(--secondary-purple);
+  overflow: hidden;
+  padding: 0;
+  margin-right: -15px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  max-width: 250px;
+  /* min-width: 200px; */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.menu-item-photo div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+  background-color: var(--primary-green);
+  text-align: center;
+}
+
+.menu-item-cart {
+  cursor: pointer;
+}
+
+.menu-item-cart span {
+  margin-right: 6px;
+}
+
+.menu-item-cart:hover {
+  background-color: var(--secondary-green);
+}
+
+.menu-item-description {
+  padding-right: 30px;
+  text-align: left;
+}
+
+.menu-item-details {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.menu-item-hr {
+  display: none;
+  width: 80%;
+  border-bottom: 1px solid var(--primary-white);
+  margin: 0 auto;
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .catalog-subtitle {
+    font-size: 14px;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .catalog-subtitle {
+    font-size: 13px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .catalog-subtitle {
+    font-size: 12px;
+  }
+  .menu-item-photo {
+    margin-right: auto;
+  }
+  .menu-item-tile .menu-item-price {
+    text-align: center;
+  }
+}
+
+/********** additional small option **********/
+@media (max-width: 575px) {
+  .menu-item-hr {
+    display: block;
+  }
+  h3.menu-item-title {
+    text-align: center;
+  }
+  .menu-item-description {
+    text-align: center;
+  }
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  .catalog-subtitle {
+    font-size: 11px;
+  }
+}

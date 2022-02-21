@@ -20,6 +20,18 @@
 }
 
 .main-title {
+  font-weight: 300;
+  padding-top: 30px;
+  font-family: 'Lora', serif;
+  color: var(--primary-white);
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px var(--secondary-white);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  line-height: .75;
+}
+
+.custom-title {
   font-weight: 700;
   padding-top: 30px;
   font-family: 'Lora', serif;
@@ -29,4 +41,32 @@
   margin-top: 10px;
   margin-bottom: 30px;
   line-height: .75;
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .main-title, .custom-title {
+    font-size: 30px;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .main-title, .custom-title {
+    font-size: 28px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .main-title, .custom-title {
+    font-size: 26px;
+  }
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  .main-title, .custom-title {
+    font-size: 24px;
+  }
 }
