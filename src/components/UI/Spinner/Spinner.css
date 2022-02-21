@@ -1,0 +1,6 @@
+.spinner-container {
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+  margin: auto;
+}
