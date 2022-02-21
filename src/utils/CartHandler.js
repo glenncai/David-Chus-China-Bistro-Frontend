@@ -23,15 +23,3 @@ export const addDishToCart = (dish) => {
     );
   }
 };
-
-export const checkAddedDish = (dish) => {
-  let davidchuschinabistro_cart = { dishes: [] };
-
-  if (typeof window !== 'undefined') {
-    if (localStorage.getItem('davidchuschinabistro_cart')) {
-      davidchuschinabistro_cart = JSON.parse(
-        localStorage.getItem('davidchuschinabistro_cart'),
-      );
-    }
-  }
-};
