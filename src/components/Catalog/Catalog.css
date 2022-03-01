@@ -1,3 +1,7 @@
+.catalog-container {
+  position: relative;
+}
+
 .catalog-subtitle {
   font-size: 15px;
 }
