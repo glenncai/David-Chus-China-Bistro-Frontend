@@ -120,29 +120,29 @@ export const Catalog = () => {
   const renderCatalog = () => (
     <Layout title={'Choose your cuisine'} background={false}>
       {showNotification()}
-      {loading ? (
-        <Spinner />
-      ) : (
-        <section className="container">
-          <p className="catalog-subtitle">
-            Substituting white rice with brown rice or fried rice after 3:00pm
-            will be $1.50 for a pint and $2.50 for a quart.
-          </p>
-          <div className="catalog-main">
-            <div className="catalog-category mt-4">
-              <CheckboxGroup
-                categories={categories}
-                categoriesSelected={selectCategories}
-                handleFiltering={getFilteredDishes}
-              />
-            </div>
+      <section className="catalog-container container">
+        <p className="catalog-subtitle">
+          Substituting white rice with brown rice or fried rice after 3:00pm
+          will be $1.50 for a pint and $2.50 for a quart.
+        </p>
+        <div className="catalog-main">
+          <div className="catalog-category mt-4">
+            <CheckboxGroup
+              categories={categories}
+              categoriesSelected={selectCategories}
+              handleFiltering={getFilteredDishes}
+            />
+          </div>
+          {loading ? (
+            <Spinner />
+          ) : (
             <div className="catalog-cusine">
               {displayDishes()}
               {displayFilteredDishes()}
             </div>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
     </Layout>
   );
 
