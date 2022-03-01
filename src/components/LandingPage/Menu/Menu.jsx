@@ -1,6 +1,7 @@
 import './Menu.css';
 import Typed from 'react-typed';
 import Jumbotron from '../../../assets/images/surrounding/jumbotron_1200.jpg';
+import { Link } from 'react-router-dom';
 
 export const Menu = () => {
   const renderMenu = () => (
@@ -29,18 +30,18 @@ export const Menu = () => {
         </div>
         <div className="row">
           <div className="col-md-4 col-sm-6 col-xs-12">
-            <a href="/">
+            <Link to="/catalog">
               <div id="menu-tile">
                 <span>menu</span>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="col-md-4 col-sm-6 col-xs-12">
-            <a href="/">
+            <Link to="/">
               <div id="specials-tile">
                 <span>specials</span>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="col-md-4 col-sm-12 col-xs-12">
             <a

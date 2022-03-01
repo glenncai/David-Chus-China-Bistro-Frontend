@@ -1,0 +1,47 @@
+.cart-dish-container {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--thirdly-white);
+}
+
+.cart-dish-delete {
+  cursor: pointer;
+  padding-right: 10px;
+  font-size: 31px;
+}
+
+.cart-img {
+  border: 2px solid var(--secondary-purple);
+}
+
+.cart-dish-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 12px;
+}
+
+.cart-dish-text span {
+  font-weight: 700;
+}
+
+.cart-dish-quantity {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.cart-dish-quantity span {
+  padding: 0 10px;
+}
+
+.cart-quantity-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-dish-totalPrice {
+  font-weight: 700;
+}

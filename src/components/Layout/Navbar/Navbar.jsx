@@ -60,7 +60,14 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link
+                  className={
+                    window.location.pathname === '/cart'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                  to="/cart"
+                >
                   Cart
                 </Link>
               </li>

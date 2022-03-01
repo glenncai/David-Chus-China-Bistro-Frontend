@@ -18,8 +18,17 @@ export const Notification = ({ type, show, setShow }) => {
           });
         }
         break;
+      case 'REMOVE_DISH':
+        if (show) {
+          toast.success('Removed dish from cart', {
+            toastId: 'REMOVE_DISH',
+            onClose: () => {
+              closeNotification();
+            },
+          });
+        }
+        break;
       default:
-        toast.info('Welcome');
         break;
     }
   };
