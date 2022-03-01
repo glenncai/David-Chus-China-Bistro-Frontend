@@ -9,7 +9,10 @@ export const MenuItem = ({ dish, addToCart }) => {
       <div className="row">
         <div className="col-sm-5">
           <div className="menu-item-photo">
-            <div className="menu-item-cart" onClick={() => addToCart(dish)}>
+            <div
+              className="menu-item-cart"
+              onClick={() => addToCart(dish, 'ADD_TO_CART')}
+            >
               <span>ADD</span>
               <FontAwesomeIcon icon={faCartPlus} />
             </div>

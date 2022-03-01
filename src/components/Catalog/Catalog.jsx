@@ -16,6 +16,7 @@ export const Catalog = () => {
   const [filteredDishes, setFilteredDishes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const [notificationText, setNotificationText] = useState('');
 
   const init = async () => {
     try {
@@ -44,15 +45,16 @@ export const Catalog = () => {
     init();
   }, []);
 
-  const addToCart = (dish) => {
+  const addToCart = (dish, action) => {
     addDishToCart(dish);
+    setNotificationText(action);
     setShow(true);
   };
 
   const showNotification = () => (
     <>
       {show && (
-        <Notification type={'ADD_TO_CART'} show={show} setShow={setShow} />
+        <Notification type={notificationText} show={show} setShow={setShow} />
       )}
     </>
   );
@@ -116,7 +118,7 @@ export const Catalog = () => {
   };
 
   const renderCatalog = () => (
-    <Layout title="Choose your cuisine" background={false}>
+    <Layout title={'Choose your cuisine'} background={false}>
       {showNotification()}
       {loading ? (
         <Spinner />

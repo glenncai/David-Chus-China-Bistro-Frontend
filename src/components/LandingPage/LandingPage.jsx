@@ -3,7 +3,7 @@ import { Menu } from './Menu/Menu';
 
 export const LandingPage = () => {
   const renderLandingPage = () => (
-    <Layout title="A Bite of China" background={true}>
+    <Layout title={'A Bite of China'} background={true}>
       <Menu />
     </Layout>
   );
