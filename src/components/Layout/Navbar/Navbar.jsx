@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../../assets/images/surrounding/restaurant-logo_medium.png';
 import Star from '../../../assets/images/surrounding/star-k-logo.png';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const Navbar = () => {
+  const { isAuthenticated } = useAuth0();
+
   const renderNavbar = () => (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -50,16 +53,6 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Sign In
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Register
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link
                   className={
                     window.location.pathname === '/cart'
@@ -71,6 +64,27 @@ export const Navbar = () => {
                   Cart
                 </Link>
               </li>
+              {!isAuthenticated && (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/signup">
+                      Register
+                    </Link>
+                  </li>
+                </>
+              )}
+              {isAuthenticated && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signout">
+                    Sign Out
+                  </Link>
+                </li>
+              )}
             </ul>
             <form className="d-flex">
               <div className="input-group">
