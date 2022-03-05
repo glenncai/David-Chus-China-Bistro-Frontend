@@ -7,6 +7,7 @@ export const Signup = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     loginWithRedirect({ screen_hint: 'signup' });
   }, [loginWithRedirect]);
 
