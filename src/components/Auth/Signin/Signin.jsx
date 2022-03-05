@@ -8,6 +8,7 @@ export const Signin = () => {
 
   // When this page is loaded, user will be redirected to Auth0 login page
   useEffect(() => {
+    setLoading(true);
     loginWithRedirect();
   }, [loginWithRedirect]);
 
