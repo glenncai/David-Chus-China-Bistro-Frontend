@@ -8,6 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
   const renderNavbar = () => (
     <header>
@@ -79,10 +80,35 @@ export const Navbar = () => {
                 </>
               )}
               {isAuthenticated && (
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signout">
-                    Sign Out
-                  </Link>
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="/me"
+                    id="profileDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {user.nickname}
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="profileDropdown"
+                  >
+                    <li>
+                      <Link className="dropdown-item" to="/me">
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/signout">
+                        Sign Out
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
               )}
             </ul>
