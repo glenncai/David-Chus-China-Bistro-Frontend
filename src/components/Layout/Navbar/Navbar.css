@@ -84,6 +84,12 @@ nav .nav-link {
   box-shadow: 0 0 0 0.25rem var(--transparent-purple);
 }
 
+.dropdown-item:active {
+  text-decoration: none;
+  background-color: var(--primary-green);
+  color: var(--primary-white) !important;
+}
+
 /********** Large devices only **********/
 @media (max-width: 1400px) {
   .navbar-brand h1 { /* Restaurant name */
@@ -139,6 +145,9 @@ nav .nav-link {
   #star {
     width: 19px;
     height: 19px;
+  }
+  .navbar-nav .nav-item .nav-link {
+    margin-right: 0;
   }
 }
 

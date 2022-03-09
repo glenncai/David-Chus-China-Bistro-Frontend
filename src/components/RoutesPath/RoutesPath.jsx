@@ -5,6 +5,7 @@ import { Cart } from '../Cart/Cart';
 import { Signin } from '../Auth/Signin/Signin';
 import { Signup } from '../Auth/Signup/Signup';
 import { Signout } from '../Auth/Signout/Signout';
+import { Profile } from '../Auth/Profile/Profile';
 
 export const RoutesPath = () => {
   const deployRoutes = () => (
@@ -16,6 +17,7 @@ export const RoutesPath = () => {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signout" element={<Signout />} />
+        <Route path="/me" element={<Profile />} />
       </Routes>
     </Router>
   );

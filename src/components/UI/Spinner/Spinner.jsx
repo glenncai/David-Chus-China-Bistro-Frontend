@@ -20,7 +20,7 @@ export const Spinner = ({ type = 'beat' }) => {
         ) : (
           <ClockLoader
             loading={true}
-            size={30}
+            size={80}
             color={'var(--primary-white)'}
             speedMultiplier={1}
           />
