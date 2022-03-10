@@ -1,10 +1,15 @@
 import './Navbar.css';
-import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faSearch,
+  faCartPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../../assets/images/surrounding/restaurant-logo_medium.png';
 import Star from '../../../assets/images/surrounding/star-k-logo.png';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import { getTotalItemsInCart } from '../../../utils/CartHandler';
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth0();
@@ -18,7 +23,7 @@ export const Navbar = () => {
             <Link className="navbar-brand" to="/">
               <img src={Logo} id="logo" alt="David Chu's China Bistro" />
             </Link>
-            <div className="navbar-brand">
+            <div className="navbar-brand navbar-brand-container">
               <Link to="/">
                 <h1>David Chu's China Bistro</h1>
               </Link>
@@ -26,6 +31,16 @@ export const Navbar = () => {
                 <img src={Star} id="star" alt="Kosher certification" />
                 <span>Kosher Certified</span>
               </p>
+              <div className="logo-cart-container">
+                <Link to="/cart">
+                  <FontAwesomeIcon icon={faCartPlus} className="cart-icon" />
+                  {getTotalItemsInCart() > 0 && (
+                    <span>
+                      <sup>&nbsp;{getTotalItemsInCart()}</sup>
+                    </span>
+                  )}
+                </Link>
+              </div>
             </div>
           </div>
           <button
@@ -62,7 +77,15 @@ export const Navbar = () => {
                   }
                   to="/cart"
                 >
-                  Cart
+                  <div className="cartnav-container">
+                    Cart&nbsp;
+                    <FontAwesomeIcon icon={faCartPlus} className="cart-icon" />
+                    {getTotalItemsInCart() > 0 && (
+                      <span>
+                        <sup>&nbsp;{getTotalItemsInCart()}</sup>
+                      </span>
+                    )}
+                  </div>
                 </Link>
               </li>
               {!isAuthenticated && (

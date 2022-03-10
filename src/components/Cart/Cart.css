@@ -98,4 +98,8 @@
   .shoppingBag {
     font-size: 14px;
   }
+  .cart-dish-container {
+    position: relative;
+  }
+  
 }

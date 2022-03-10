@@ -1,5 +1,6 @@
 import './Cart.css';
 import { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Layout } from '../Layout/Layout';
 import { CartItem } from '../UI/CartItem/CartItem';
 import { CartSummary } from '../UI/CartSummary/CartSummary';
@@ -16,6 +17,8 @@ export const Cart = () => {
   const [dishes, setDishes] = useState([]);
   const [show, setShow] = useState(false);
   const [notificationText, setNotificationText] = useState('');
+
+  const { isAuthenticated } = useAuth0();
 
   const init = async () => {
     try {
@@ -76,9 +79,14 @@ export const Cart = () => {
       <main className="container cart-container">
         <div className="shoppingBag">Shopping Bag({getTotalItemsInCart()})</div>
         <div className="row">
-          <div className="cart-left col-12 col-md-8">{showCardItem()}</div>
-          <div className="cart-right col-12 col-md-4 mt-2 mt-md-0 mb-2 mb-md-0">
-            <CartSummary totalPrice={getCartTotalPrice().toFixed(2)} />
+          <div className="cart-left col-12 col-md-8 order-md-first order-last">
+            {showCardItem()}
+          </div>
+          <div className="cart-right col-12 col-md-4 mt-2 mt-md-0 mb-2 mb-md-0 order-md-last order-first">
+            <CartSummary
+              totalPrice={getCartTotalPrice().toFixed(2)}
+              isAuthenticated={isAuthenticated}
+            />
           </div>
         </div>
       </main>
