@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faXmarkCircle } from '@fortawesome/free-regular-svg-icons';
-import { API_BASE_URL } from '../../../config/Config';
+import { API_IMG_URL } from '../../../config/Config';
 
 export const CartItem = ({ dish, updateCart, removeDish }) => {
   const [count, setCount] = useState(dish.count);
@@ -47,7 +47,7 @@ export const CartItem = ({ dish, updateCart, removeDish }) => {
           onClick={() => handleCartOperation('REMOVE_DISH')}
         />
         <img
-          src={`${API_BASE_URL}/api/dishes/${dish._id}/photo`}
+          src={`${API_IMG_URL}/api/dishes/${dish._id}/photo`}
           alt={dish.name}
           className="cart-img col-12 col-md-3"
         />

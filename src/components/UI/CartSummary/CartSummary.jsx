@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-export const CartSummary = ({ totalPrice }) => {
+export const CartSummary = ({ totalPrice, isAuthenticated }) => {
   const renderCartSummary = () => (
     <div className="cart-summary-container">
       <h3>ORDER SUMMRY</h3>
@@ -23,12 +23,14 @@ export const CartSummary = ({ totalPrice }) => {
         <span>Total</span>
         <span>${totalPrice}</span>
       </div>
-      <Link className="cart-checkout-link" to="/signin">
-        <button className="cart-checkout">
-          <FontAwesomeIcon icon={faLock} className="cart-checkout-icon" />
-          <span>SIGNIN TO CHECKOUT</span>
-        </button>
-      </Link>
+      {!isAuthenticated && (
+        <Link className="cart-checkout-link" to="/signin">
+          <button className="cart-checkout">
+            <FontAwesomeIcon icon={faLock} className="cart-checkout-icon" />
+            <span>SIGNIN TO CHECKOUT</span>
+          </button>
+        </Link>
+      )}
     </div>
   );
 
