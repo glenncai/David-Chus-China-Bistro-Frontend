@@ -93,6 +93,17 @@
   margin-right: 8px;
 }
 
+.cartempty-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.cartempty-container a {
+  color: var(--primary-white);
+}
+
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
   .shoppingBag {

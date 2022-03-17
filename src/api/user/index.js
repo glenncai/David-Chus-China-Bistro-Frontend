@@ -19,3 +19,33 @@ export const createUser = async (user, token) => {
     throw error;
   }
 };
+
+export const getUserAddress = async (id, token) => {
+  const headers = { Authorization: `Bearer ${token}` };
+
+  try {
+    const result = await AxiosInstance.get(`/api/users/${id}/address`, {
+      headers,
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const updateUserAddress = async (id, address, token) => {
+  const headers = { Authorization: `Bearer ${token}` };
+
+  try {
+    const result = await AxiosInstance.put(
+      `/api/users/${id}/address`,
+      address,
+      { headers },
+    );
+    return result;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};

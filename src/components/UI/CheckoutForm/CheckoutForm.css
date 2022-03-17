@@ -1,0 +1,93 @@
+.addressForm-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid var(--thirdly-white);
+  background-color: var(--thirdly-purple);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container label {
+  align-self: flex-start;
+}
+
+.addressType {
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
+input.form-control {
+  padding: 1px 1px;
+  line-height: 25px;
+  height: 35px;
+  font-size: 17px;
+  letter-spacing: .01rem;
+  padding-left: 8px;
+}
+
+.error {
+  border: 1.5px solid var(--secondary-red);
+  border-radius: 0.25rem;
+}
+
+.no-error {
+  border: 1.5px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.updateAddress-btn {
+  width: 100% !important;
+  background-color: var(--primary-yellow);
+  color: var(--primary-white);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.updateAddress-btn:hover {
+  background-color: var(--secondary-yellow);
+  color: var(--secondary-white);
+}
+
+.checkout-btn {
+  width: 100% !important;
+  background-color: var(--primary-green);
+  color: var(--primary-white);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.checkout-btn:hover {
+  background-color: var(--secondary-green);
+  color: var(--secondary-white);
+}
+
+.checkout-icon {
+  margin-right: 8px;
+}
+
+button.disable {
+  cursor: not-allowed !important;
+}
+
+/* Overwrite React-Phone-Input-2 style */
+.react-tel-input .form-control {
+  width: 100% !important;
+  font-size: 17px !important;
+}
+
+.react-tel-input .country-list  {
+  color: var(--primary-black);
+}
+
+.react-tel-input .country-list li  {
+  width: 100% !important;
+  text-align: left;
+}
