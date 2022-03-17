@@ -1,0 +1,14 @@
+.touched-text {
+  color: var(--primary-red);
+  font-size: 15px;
+}
+
+.message-text {
+  color: var(--primary-red);
+  font-size: 15px;
+}
+
+.valid-text {
+  color: var(--thirdly-green);
+  font-size: 15px;
+}

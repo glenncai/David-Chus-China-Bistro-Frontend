@@ -4,12 +4,16 @@
   --primary-green: #557c3e;
   --primary-white: #ffffff;
   --primary-black: #222222;
+  --primary-red: #ff0000;
   --secondary-purple: #3F0C1F;
+  --secondary-yellow: #f1ab08;
   --secondary-black: #000000;
   --secondary-green: #618a49;
   --secondary-white: #e7e7e7;
+  --secondary-red: #dc3545;
   --thirdly-purple: #520c2642;
   --thirdly-white: #dadada3a;
+  --thirdly-green: #008000;
   --transparent-purple: rgba(97, 18, 47, 0.185);
 }
 

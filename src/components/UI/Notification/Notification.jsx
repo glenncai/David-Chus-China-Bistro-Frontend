@@ -28,6 +28,16 @@ export const Notification = ({ type, show, setShow }) => {
           });
         }
         break;
+      case 'UPDATE_ADDRESS':
+        if (show) {
+          toast.success('Updated address successfully', {
+            toastId: 'UPDATE_ADDRESS',
+            onClose: () => {
+              closeNotification();
+            },
+          });
+        }
+        break;
       default:
         break;
     }
@@ -37,7 +47,7 @@ export const Notification = ({ type, show, setShow }) => {
 
   const renderNotification = () => (
     <ToastContainer
-      position="top-center"
+      position="top-right"
       autoClose={500}
       hideProgressBar={false}
       newestOnTop={false}

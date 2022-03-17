@@ -37,10 +37,12 @@ export const getCartTotalPrice = () => {
     if (localStorage.getItem('davidchu_cart')) {
       const cart = JSON.parse(window.localStorage.getItem('davidchu_cart'));
       dishes = cart.dishes;
-
-      let totalPrice = _.sumBy(dishes, (dish) => dish.count * dish.price);
-
-      return totalPrice;
+      if (dishes.length) {
+        let totalPrice = _.sumBy(dishes, (dish) => dish.count * dish.price);
+        return totalPrice;
+      } else {
+        return null;
+      }
     }
   }
 };
