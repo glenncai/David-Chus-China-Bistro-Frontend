@@ -118,8 +118,8 @@ export const CheckoutForm = ({
               className={
                 (touched.full_name &&
                   errors.full_name &&
-                  'form-control is-invalid') ||
-                'form-control'
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.full_name} message={errors.full_name} />
@@ -134,8 +134,10 @@ export const CheckoutForm = ({
               onChange={handleChange}
               onBlur={handleBlur}
               className={
-                (touched.line1 && errors.line1 && 'form-control is-invalid') ||
-                'form-control'
+                (touched.line1 &&
+                  errors.line1 &&
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.line1} message={errors.line1} />
@@ -150,8 +152,10 @@ export const CheckoutForm = ({
               onChange={handleChange}
               onBlur={handleBlur}
               className={
-                (touched.line2 && errors.line2 && 'form-control is-invalid') ||
-                'form-control'
+                (touched.line2 &&
+                  errors.line2 &&
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.line2} message={errors.line2} />
@@ -166,8 +170,10 @@ export const CheckoutForm = ({
               onChange={handleChange}
               onBlur={handleBlur}
               className={
-                (touched.city && errors.city && 'form-control is-invalid') ||
-                'form-control'
+                (touched.city &&
+                  errors.city &&
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.city} message={errors.city} />
@@ -184,8 +190,8 @@ export const CheckoutForm = ({
               className={
                 (touched.country &&
                   errors.country &&
-                  'form-control is-invalid') ||
-                'form-control'
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.country} message={errors.country} />
@@ -200,8 +206,10 @@ export const CheckoutForm = ({
               onChange={handleChange}
               onBlur={handleBlur}
               className={
-                (touched.state && errors.state && 'form-control is-invalid') ||
-                'form-control'
+                (touched.state &&
+                  errors.state &&
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.state} message={errors.state} />
@@ -216,8 +224,10 @@ export const CheckoutForm = ({
               onChange={handleChange}
               onBlur={handleBlur}
               className={
-                (touched.zip && errors.zip && 'form-control is-invalid') ||
-                'form-control'
+                (touched.zip &&
+                  errors.zip &&
+                  'form-control is-invalid checkout-input') ||
+                'form-control checkout-input'
               }
             />
             <FormError touched={touched.zip} message={errors.zip} />

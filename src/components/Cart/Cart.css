@@ -93,15 +93,30 @@
   margin-right: 8px;
 }
 
-.cartempty-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.order-success-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.cartempty-container a {
-  color: var(--primary-white);
+.order-success-icon {
+  font-size: 88px;
+  color: var(--secondary-green);
+}
+
+.order-success-text {
+  font-size: 30px;
+}
+
+.order-link,
+.order-link:hover  {
+  color: var(--primary-yellow);
+}
+
+.order-cancel-container {
+  background-color: var(--primary-yellow);
+  border-radius: 6px;
+  font-weight: 700;
 }
 
 /********** Extra small devices only **********/
@@ -112,5 +127,4 @@
   .cart-dish-container {
     position: relative;
   }
-  
 }

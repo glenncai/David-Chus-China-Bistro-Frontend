@@ -7,7 +7,7 @@ import { CartSummary } from '../UI/CartSummary/CartSummary';
 import { CheckoutForm } from '../UI/CheckoutForm/CheckoutForm';
 import { Notification } from '../UI/Notification/Notification';
 import { Spinner } from '../UI/Spinner/Spinner';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faSadCry } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   getTotalItemsInCart,
@@ -19,7 +19,8 @@ import {
 } from '../../utils/CartHandler';
 import { Link } from 'react-router-dom';
 import { getUserAddress, updateUserAddress } from '../../api/user';
-import { createOrder } from '../../api/order';
+import { createOrder, updateOrderStatus } from '../../api/order';
+import EmptyCartLogo from '../../assets/images/surrounding/empty-cart.png';
 
 export const Cart = () => {
   const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
@@ -28,8 +29,9 @@ export const Cart = () => {
   const [notificationText, setNotificationText] = useState('');
   const [address, setAddress] = useState({});
   const [loading, setLoading] = useState(false);
-  const [checkoutProgress, setCheckoutProgress] = useState('');
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+  const [checkoutCanceled, setCheckoutCanceled] = useState(false);
+  const [paymentSessionId, setPaymentSessionId] = useState('');
 
   const saveOrder = async () => {
     setLoading(true);
@@ -77,14 +79,9 @@ export const Cart = () => {
     try {
       setLoading(true);
       const token = await getAccessTokenSilently();
-      await updateUserAddress(id, address, token);
-
-      // Empty address in order to fix bug
-      setAddress({});
-
-      // Show the lastest address
-      isAuthenticated && getAddress();
-
+      const result = await updateUserAddress(id, address, token);
+      // Update the address form value
+      setAddress(result.data);
       setLoading(false);
       setNotificationText('UPDATE_ADDRESS');
       setShow(true);
@@ -93,6 +90,16 @@ export const Cart = () => {
       if (error.response) {
         console.log(error.response.data.error);
       }
+    }
+  };
+
+  const updateOrderStatusHandler = async (checkout_session_id) => {
+    const token = await getAccessTokenSilently();
+    try {
+      const result = await updateOrderStatus(checkout_session_id, token);
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -116,9 +123,13 @@ export const Cart = () => {
 
     init(query);
 
-    if (query.get('success') && isAuthenticated) {
-      console.log('Enter here!!!');
+    // Payment session id exist
+    if (query.get('id') && isAuthenticated) {
+      setPaymentSessionId(query.get('id'));
+    }
 
+    // Payment success
+    if (query.get('success') && isAuthenticated) {
       // Empty the cart
       emptyCart();
 
@@ -126,9 +137,19 @@ export const Cart = () => {
       setDishes(getCart());
 
       // Show message
-      setCheckoutProgress('completed');
       setCheckoutSuccess(true);
     }
+
+    // Payment cancel
+    if (query.get('canceled') && isAuthenticated) {
+      console.log('Query: ', query.get('id'));
+      setCheckoutCanceled(true);
+
+      // Call the api to update order status to abandoned
+      const checkout_session_id = query.get('id');
+      updateOrderStatusHandler(checkout_session_id);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
@@ -141,11 +162,34 @@ export const Cart = () => {
               <FontAwesomeIcon icon={faCheckCircle} />
             </span>
             <span className="order-success-text">
-              Your <Link to="/orders/123">order</Link> is placed! You will
-              receive a text confirmation soon.
+              Your&nbsp;
+              <Link to={`/myorders/${paymentSessionId}`} className="order-link">
+                order
+              </Link>
+              &nbsp;is placed! You will receive a text confirmation soon
+              :&#x00029;
             </span>
           </>
         ) : null}
+      </div>
+    );
+  };
+
+  const showCheckoutCancelMsg = () => {
+    return (
+      <div className="order-cancel-container mt-3 mb-3">
+        <FontAwesomeIcon icon={faSadCry} size={'1x'} className="me-1" />
+        <span>
+          Order cancelled. Continue to shop around and checkout when ready!
+        </span>
+      </div>
+    );
+  };
+
+  const showEmptyCartMsg = () => {
+    return (
+      <div className="cartempty-container mt-5">
+        <img className="img-fluid" src={EmptyCartLogo} alt="Empty Cart" />
       </div>
     );
   };
@@ -195,7 +239,8 @@ export const Cart = () => {
       {showNotification()}
       <main className="container cart-container">
         <div className="shoppingBag">Shopping Bag({getTotalItemsInCart()})</div>
-        {showCheckoutSuccessMsg()}
+        {checkoutSuccess && showCheckoutSuccessMsg()}
+        {checkoutCanceled && showCheckoutCancelMsg()}
         {loading ? (
           <Spinner />
         ) : (
@@ -203,33 +248,29 @@ export const Cart = () => {
             <div className="cart-left col-12 col-md-8 order-md-first order-last">
               {showCardItem()}
             </div>
-            {
-              getCartTotalPrice() ? (
-                <div className="cart-right col-12 col-md-4 mt-2 mt-md-0 mb-2 mb-md-0 order-md-last order-first">
-                  <div className="d-flex flex-column">
-                    <CartSummary
-                      totalPrice={getCartTotalPrice().toFixed(2)}
-                      isAuthenticated={isAuthenticated}
-                    />
-                    {isAuthenticated && (
-                      <div className="mt-2 mb-2">
-                        <CheckoutForm
-                          address={address}
-                          addressType={'Shipping Address'}
-                          updateAddress={updateAddress}
-                          checkout={saveOrder}
-                        />
-                      </div>
-                    )}
-                  </div>
+            {getCartTotalPrice() ? (
+              <div className="cart-right col-12 col-md-4 mt-2 mt-md-0 mb-2 mb-md-0 order-md-last order-first">
+                <div className="d-flex flex-column">
+                  <CartSummary
+                    totalPrice={getCartTotalPrice().toFixed(2)}
+                    isAuthenticated={isAuthenticated}
+                  />
+                  {isAuthenticated && (
+                    <div className="mt-2 mb-2">
+                      <CheckoutForm
+                        address={address}
+                        addressType={'Shipping Address'}
+                        updateAddress={updateAddress}
+                        checkout={saveOrder}
+                      />
+                    </div>
+                  )}
                 </div>
-              ) : null
-              // <div className="cartempty-container">
-              //   <h3>
-              //     Empty Cart... <Link to="/catalog">Browse Now!</Link>
-              //   </h3>
-              // </div>
-            }
+              </div>
+            ) : null}
+            {!checkoutSuccess &&
+              getTotalItemsInCart() === 0 &&
+              showEmptyCartMsg()}
           </div>
         )}
       </main>

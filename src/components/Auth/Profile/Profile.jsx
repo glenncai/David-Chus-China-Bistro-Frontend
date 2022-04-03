@@ -8,12 +8,15 @@ export const Profile = () => {
     <Layout title="Profile Information" background={false}>
       <section className="profile-container container">
         <img
-          src={user.picture}
-          alt={user.name}
-          className="rounded-circle img-fluid"
+          src={user?.picture}
+          alt={user?.nickname}
+          className="rounded-circle"
         />
-        <pre>{JSON.stringify(user, null, 2)}</pre>
+        <h4>{user?.nickname}</h4>
+        <h5>{user?.email}</h5>
       </section>
+
+      <pre>{JSON.stringify(user, null, 2)}</pre>
     </Layout>
   );
 
