@@ -9,3 +9,17 @@ export const AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   timeout: TIMEOUT,
 });
+
+AxiosInstance.interceptors.response.use(
+  (response) => {
+    console.log(response);
+    // 'redirect' is the stripe payment url what I set in backend
+    if (response.data.redirect) {
+      window.location = response.data.redirect;
+    }
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);

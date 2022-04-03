@@ -13,11 +13,10 @@ export const App = () => {
   const createUserHandler = async () => {
     if (isAuthenticated) {
       const loginCount = parseInt(user[`${AUTH0_CLAIMS_URL}/logins`]) || 0;
-
+      const JWTtoken = await getAccessTokenSilently();
+      console.log('Token: ' + JWTtoken);
       if (loginCount <= 1) {
-        const JWTtoken = await getAccessTokenSilently();
         const result = await createUser(user, JWTtoken);
-        console.log('Token: ' + JWTtoken);
         console.log(result.data);
       } else {
         console.log('User already exists in our system.');

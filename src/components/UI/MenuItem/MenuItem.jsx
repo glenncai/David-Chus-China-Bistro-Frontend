@@ -1,5 +1,5 @@
 import './MenuItem.css';
-import { API_IMG_URL } from '../../../config/Config';
+import { API_BASE_URL } from '../../../config/Config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +18,7 @@ export const MenuItem = ({ dish, addToCart }) => {
             </div>
             <img
               className="img-fluid"
-              src={`${API_IMG_URL}/api/dishes/${dish._id}/photo`}
+              src={`${API_BASE_URL}/api/dishes/${dish._id}/photo`}
               alt={dish.name}
             />
           </div>

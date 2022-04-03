@@ -93,3 +93,15 @@ export const removeDishFromCart = (id, callback) => {
     }
   }
 };
+
+export const emptyCart = () => {
+  if (typeof window !== 'undefined') {
+    if (localStorage.getItem('davidchu_cart')) {
+      const cart = JSON.parse(window.localStorage.getItem('davidchu_cart'));
+      cart.dishes = [];
+      localStorage.setItem('davidchu_cart', JSON.stringify(cart));
+    }
+
+    return;
+  }
+};
