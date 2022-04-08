@@ -1,0 +1,45 @@
+.dot-danger {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color:red;
+}
+
+.dot-success {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: green;
+  animation: createDot 2s infinite;
+  padding: 3px;
+  border: 1px solid #fff;
+}
+
+.dot-warn {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #e86c0e;
+  animation: createDot 2s infinite;
+  padding: 3px;
+  border: 1px solid #fff;
+}
+
+.dot-info {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: blue;
+  animation: createDot 2s infinite;
+  padding: 3px;
+  border: 1px solid #fff;
+}
+
+@keyframes createDot {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}

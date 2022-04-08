@@ -52,6 +52,7 @@ h3.menu-item-title {
 
 .menu-item-cart {
   cursor: pointer;
+  z-index: 99;
 }
 
 .menu-item-cart span {

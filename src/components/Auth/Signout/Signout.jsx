@@ -9,7 +9,8 @@ export const Signout = () => {
   useEffect(() => {
     setLoading(true);
     logout({ returnTo: window.location.origin });
-  }, [logout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return <>{loading ? <Spinner type="clock" /> : null}</>;
 };

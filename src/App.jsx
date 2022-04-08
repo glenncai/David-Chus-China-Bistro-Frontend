@@ -14,7 +14,7 @@ export const App = () => {
     if (isAuthenticated) {
       const loginCount = parseInt(user[`${AUTH0_CLAIMS_URL}/logins`]) || 0;
       const JWTtoken = await getAccessTokenSilently();
-      console.log('Token: ' + JWTtoken);
+      // console.log('Token: ' + JWTtoken);
       if (loginCount <= 1) {
         const result = await createUser(user, JWTtoken);
         console.log(result.data);

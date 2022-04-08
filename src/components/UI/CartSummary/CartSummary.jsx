@@ -24,7 +24,10 @@ export const CartSummary = ({ totalPrice, isAuthenticated }) => {
         <span>${totalPrice}</span>
       </div>
       {!isAuthenticated && (
-        <Link className="cart-checkout-link" to="/signin">
+        <Link
+          className="cart-checkout-link"
+          to={{ pathname: '/signin', returnTo: '/cart' }}
+        >
           <button className="cart-checkout">
             <FontAwesomeIcon icon={faLock} className="cart-checkout-icon" />
             <span>SIGNIN TO CHECKOUT</span>

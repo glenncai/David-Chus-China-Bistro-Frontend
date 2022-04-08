@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faXmarkCircle } from '@fortawesome/free-regular-svg-icons';
 import { API_BASE_URL } from '../../../config/Config';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export const CartItem = ({ dish, updateCart, removeDish }) => {
   const [count, setCount] = useState(dish.count);
@@ -46,10 +48,11 @@ export const CartItem = ({ dish, updateCart, removeDish }) => {
           title="Remove Dish"
           onClick={() => handleCartOperation('REMOVE_DISH')}
         />
-        <img
+        <LazyLoadImage
           src={`${API_BASE_URL}/api/dishes/${dish._id}/photo`}
           alt={dish.name}
-          className="cart-img col-12 col-md-3"
+          className="cart-img img-fluid"
+          effect={'blur'}
         />
         <div className="cart-dish-text col-12 col-md-5">
           <span className="align-self-md-start align-self-center">

@@ -127,6 +127,14 @@ export const Navbar = () => {
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
+                      <Link className="dropdown-item" to="/orders">
+                        Orders
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
                       <Link className="dropdown-item" to="/signout">
                         Sign Out
                       </Link>
