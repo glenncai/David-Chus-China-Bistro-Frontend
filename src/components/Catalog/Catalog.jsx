@@ -74,7 +74,7 @@ export const Catalog = () => {
 
   const displayFilteredDishes = () => {
     return (
-      <div className="row mt-4">
+      <div className="row">
         {filteredDishes.length > 0 &&
           filteredDishes.map((filteredDish) => {
             return (

@@ -1,0 +1,59 @@
+.accordion-container {
+  display: flex;
+  flex-wrap:  wrap;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-black)
+}
+
+.acc-item {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.acc-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+  cursor: pointer;
+  padding: 20px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.acc-title.active {
+  background-color: var(--primary-yellow);
+  color: var(--primary-white);
+}
+
+.acc-title:hover {
+  background-color: var(--primary-yellow);
+  color: var(--primary-white);
+}
+
+.acc-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 0;
+  overflow: hidden;
+  background-color: var(--primary-white);
+  max-height: 100px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.acc-content.show {
+  height: auto;
+  padding: 10px;
+  overflow: visible;
+}

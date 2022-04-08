@@ -1,7 +1,13 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const Notification = ({ type, show, setShow }) => {
+export const Notification = ({
+  type,
+  show,
+  setShow,
+  autoCloseTime = 500,
+  hideProgressBar = false,
+}) => {
   const closeNotification = () => {
     setShow(false);
   };
@@ -38,6 +44,16 @@ export const Notification = ({ type, show, setShow }) => {
           });
         }
         break;
+      case 'EMPTY_ADDRESS':
+        if (show) {
+          toast.error('Address cannot be empty', {
+            toastId: 'EMPTY_ADDRESS',
+            onClose: () => {
+              closeNotification();
+            },
+          });
+        }
+        break;
       default:
         break;
     }
@@ -48,8 +64,8 @@ export const Notification = ({ type, show, setShow }) => {
   const renderNotification = () => (
     <ToastContainer
       position="top-right"
-      autoClose={500}
-      hideProgressBar={false}
+      autoClose={autoCloseTime}
+      hideProgressBar={hideProgressBar}
       newestOnTop={false}
       closeOnClick
       rtl={false}

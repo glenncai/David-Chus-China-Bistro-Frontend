@@ -9,6 +9,7 @@ import _ from 'lodash';
 import equal from 'deep-equal';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Notification } from '../../UI/Notification/Notification';
 
 const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
@@ -57,6 +58,24 @@ export const CheckoutForm = ({
   ({ full_name, line1, line2, city, state, zip, country, phone } = address);
 
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+  const [notificationText, setNotificationText] = useState('');
+
+  console.log(address);
+
+  const showNotification = () => (
+    <>
+      {show && (
+        <Notification
+          type={notificationText}
+          show={show}
+          setShow={setShow}
+          autoCloseTime={5000}
+          hideProgressBar={true}
+        />
+      )}
+    </>
+  );
 
   const updateUserAddress = (values) => {
     setSubmitting(true);
@@ -96,185 +115,195 @@ export const CheckoutForm = ({
 
   const checkoutHandler = (e) => {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    setLoading(true);
-    console.log('Clicked checkout handler!');
-    checkout();
+    if (_.isEmpty(address)) {
+      setShow(true);
+      setNotificationText('EMPTY_ADDRESS');
+    } else {
+      setLoading(true);
+      checkout();
+    }
   };
 
   const renderAddressForm = () => (
-    <div>
-      <form className="addressForm-container" onSubmit={handleSubmit}>
-        <h3 className="addressType">{addressType}</h3>
-        <div className="row">
-          <div className="input-container col-12">
-            <label htmlFor="full_name">Full Name</label>
-            <input
-              type="text"
-              id="full_name"
-              name="full_name"
-              value={values.full_name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.full_name &&
-                  errors.full_name &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.full_name} message={errors.full_name} />
+    <>
+      {showNotification()}
+      <div>
+        <form className="addressForm-container" onSubmit={handleSubmit}>
+          <h3 className="addressType">{addressType}</h3>
+          <div className="row">
+            <div className="input-container col-12">
+              <label htmlFor="full_name">Full Name</label>
+              <input
+                type="text"
+                id="full_name"
+                name="full_name"
+                value={values.full_name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.full_name &&
+                    errors.full_name &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError
+                touched={touched.full_name}
+                message={errors.full_name}
+              />
+            </div>
+            <div className="input-container col-12">
+              <label htmlFor="line1">Line1</label>
+              <input
+                type="text"
+                id="line1"
+                name="line1"
+                value={values.line1}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.line1 &&
+                    errors.line1 &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.line1} message={errors.line1} />
+            </div>
+            <div className="input-container col-12">
+              <label htmlFor="line2">Line2</label>
+              <input
+                type="text"
+                id="line2"
+                name="line2"
+                value={values.line2}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.line2 &&
+                    errors.line2 &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.line2} message={errors.line2} />
+            </div>
+            <div className="input-container col-6">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={values.city}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.city &&
+                    errors.city &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.city} message={errors.city} />
+            </div>
+            <div className="input-container col-6">
+              <label htmlFor="country">Country</label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                value={values.country}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.country &&
+                    errors.country &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.country} message={errors.country} />
+            </div>
+            <div className="input-container col-6">
+              <label htmlFor="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                value={values.state}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.state &&
+                    errors.state &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.state} message={errors.state} />
+            </div>
+            <div className="input-container col-6">
+              <label htmlFor="zip">Zip</label>
+              <input
+                type="text"
+                id="zip"
+                name="zip"
+                value={values.zip}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  (touched.zip &&
+                    errors.zip &&
+                    'form-control is-invalid checkout-input') ||
+                  'form-control checkout-input'
+                }
+              />
+              <FormError touched={touched.zip} message={errors.zip} />
+            </div>
+            <div className="input-container col-12">
+              <label htmlFor="phone">Phone</label>
+              <PhoneInput
+                country={'hk'}
+                autoFormat={true}
+                disableSearchIcon={true}
+                id="phone"
+                name="phone"
+                value={values.phone}
+                enableSearch={true}
+                onChange={handleChange('phone')}
+                onBlur={handleBlur('phone')}
+                searchPlaceholder={'Search...'}
+                className={
+                  (touched.phone && errors.phone && 'error') || 'no-error'
+                }
+              />
+              <FormError touched={touched.phone} message={errors.phone} />
+            </div>
           </div>
-          <div className="input-container col-12">
-            <label htmlFor="line1">Line1</label>
-            <input
-              type="text"
-              id="line1"
-              name="line1"
-              value={values.line1}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.line1 &&
-                  errors.line1 &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.line1} message={errors.line1} />
-          </div>
-          <div className="input-container col-12">
-            <label htmlFor="line2">Line2</label>
-            <input
-              type="text"
-              id="line2"
-              name="line2"
-              value={values.line2}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.line2 &&
-                  errors.line2 &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.line2} message={errors.line2} />
-          </div>
-          <div className="input-container col-6">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={values.city}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.city &&
-                  errors.city &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.city} message={errors.city} />
-          </div>
-          <div className="input-container col-6">
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              name="country"
-              value={values.country}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.country &&
-                  errors.country &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.country} message={errors.country} />
-          </div>
-          <div className="input-container col-6">
-            <label htmlFor="state">State</label>
-            <input
-              type="text"
-              id="state"
-              name="state"
-              value={values.state}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.state &&
-                  errors.state &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.state} message={errors.state} />
-          </div>
-          <div className="input-container col-6">
-            <label htmlFor="zip">Zip</label>
-            <input
-              type="text"
-              id="zip"
-              name="zip"
-              value={values.zip}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                (touched.zip &&
-                  errors.zip &&
-                  'form-control is-invalid checkout-input') ||
-                'form-control checkout-input'
-              }
-            />
-            <FormError touched={touched.zip} message={errors.zip} />
-          </div>
-          <div className="input-container col-12">
-            <label htmlFor="phone">Phone</label>
-            <PhoneInput
-              country={'hk'}
-              autoFormat={true}
-              disableSearchIcon={true}
-              id="phone"
-              name="phone"
-              value={values.phone}
-              enableSearch={true}
-              onChange={handleChange('phone')}
-              onBlur={handleBlur('phone')}
-              searchPlaceholder={'Search...'}
-              className={
-                (touched.phone && errors.phone && 'error') || 'no-error'
-              }
-            />
-            <FormError touched={touched.phone} message={errors.phone} />
-          </div>
-        </div>
+          <button
+            className={
+              !_.isEmpty(errors || equal(address, values) || loading)
+                ? 'btn updateAddress-btn disable'
+                : 'btn updateAddress-btn'
+            }
+            type="submit"
+          >
+            Update Address
+          </button>
+        </form>
         <button
           className={
             !_.isEmpty(errors || equal(address, values) || loading)
-              ? 'btn updateAddress-btn disable'
-              : 'btn updateAddress-btn'
+              ? 'btn checkout-btn mt-2 mb-4 disable'
+              : 'btn checkout-btn mt-2 mb-4'
           }
-          type="submit"
+          onClick={(e) => checkoutHandler(e)}
         >
-          Update Address
+          <FontAwesomeIcon icon={faLock} className="checkout-icon" />
+          <span>Check Out</span>
         </button>
-      </form>
-      <button
-        className={
-          !_.isEmpty(errors || equal(address, values) || loading)
-            ? 'btn checkout-btn mt-2 mb-4 disable'
-            : 'btn checkout-btn mt-2 mb-4'
-        }
-        onClick={(e) => checkoutHandler(e)}
-      >
-        <FontAwesomeIcon icon={faLock} className="checkout-icon" />
-        <span>Check Out</span>
-      </button>
-    </div>
+      </div>
+    </>
   );
 
   return <div>{renderAddressForm()}</div>;

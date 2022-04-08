@@ -9,7 +9,8 @@ export const Signup = () => {
   useEffect(() => {
     setLoading(true);
     loginWithRedirect({ screen_hint: 'signup' });
-  }, [loginWithRedirect]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return <>{loading ? <Spinner type="clock" /> : null}</>;
 };

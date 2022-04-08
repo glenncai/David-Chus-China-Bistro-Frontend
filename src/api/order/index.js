@@ -33,3 +33,20 @@ export const updateOrderStatus = async (checkout_session_id, token) => {
     throw error;
   }
 };
+
+export const getMyOrders = async (token) => {
+  const headers = { Authorization: `Bearer ${token}` };
+
+  try {
+    const params = new URLSearchParams({
+      limit: 10,
+    });
+    const response = await AxiosInstance.get(`/api/orders?${params}`, {
+      headers,
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};

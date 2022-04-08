@@ -49,6 +49,7 @@
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
   .cart-dish-delete {
+    z-index: 99;
     position: absolute;
     right: 0;
     font-size: 42px;
@@ -58,6 +59,7 @@
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
   .cart-dish-delete {
+    z-index: 99;
     position: absolute;
     right: 0;
     font-size: 38px;

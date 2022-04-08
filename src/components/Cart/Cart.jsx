@@ -163,7 +163,7 @@ export const Cart = () => {
             </span>
             <span className="order-success-text">
               Your&nbsp;
-              <Link to={`/myorders/${paymentSessionId}`} className="order-link">
+              <Link to={`/orders/${paymentSessionId}`} className="order-link">
                 order
               </Link>
               &nbsp;is placed! You will receive a text confirmation soon
@@ -238,7 +238,12 @@ export const Cart = () => {
     <Layout title={'My Cart'} background={false}>
       {showNotification()}
       <main className="container cart-container">
-        <div className="shoppingBag">Shopping Bag({getTotalItemsInCart()})</div>
+        {getTotalItemsInCart() !== 0 && (
+          <div className="shoppingBag">
+            Shopping Bag({getTotalItemsInCart()})
+          </div>
+        )}
+
         {checkoutSuccess && showCheckoutSuccessMsg()}
         {checkoutCanceled && showCheckoutCancelMsg()}
         {loading ? (

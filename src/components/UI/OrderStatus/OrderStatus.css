@@ -1,0 +1,32 @@
+.order-status {
+  width: 480px;
+  height: 170px;
+  background-color: #a7ecbc;
+  border-radius: 10px;
+  padding: 2px;  
+  color: #570303;
+  margin: 16px 10px 0;
+  border: 1px solid #570303;
+  box-shadow: 1px 1px 4px 1px black;
+  padding: 10px;
+}
+
+.order-status .header {
+  padding: 0 0 1px;
+  margin-left: 10px;
+}
+
+.order-status .content {
+
+  padding : 0 0 4px;
+  margin-left: 10px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.order-status .os-footer {
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
+}
+

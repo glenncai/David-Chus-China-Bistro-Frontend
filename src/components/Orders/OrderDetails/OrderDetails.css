@@ -1,0 +1,13 @@
+.back-btn {
+  color: var(--primary-white);
+  background-color: var(--primary-yellow);
+}
+
+.back-btn:hover {
+  color: var(--primary-white);
+  background-color: var(--secondary-yellow);
+}
+
+.back-btn span {
+  margin-left: 5px;
+}
