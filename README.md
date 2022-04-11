@@ -1,6 +1,9 @@
 # David Chu's China Bistro
 
+Fun project is still in progress...
+
 ## Demo
+https://user-images.githubusercontent.com/60476708/162663182-f49361f7-0801-4fba-8c50-1231750c3631.mp4
 
 ## Tech Stack
 * React
